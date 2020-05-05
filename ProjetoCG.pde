@@ -66,12 +66,13 @@ void draw() {
   
   /*----------------------------LUZES------------------------------------*/
   if(luzAmbiente) {
-    ambientLight(200, 200, 200);
+    ambientLight(0, 0, 0);
     lightSpecular(200, 200, 200);
-    spotLight(200, 200, 200, centroX, centroY, height, 0, 0, -1, PI, 1);
-    //pointLight(200, 200, 200, centroX, centroY, height);
+    spotLight(150, 150, 150, centroX, centroY, height, 0, 0, -1, PI, 1);
     background(250, 240, 222);
   } else {
+    ambientLight(0, 0, 0);
+    lightSpecular(30, 30, 30);
     spotLight(30, 30, 30, centroX, centroY, height, 0, 0, -1, PI, 1);
     background(30, 30, 30);
   }

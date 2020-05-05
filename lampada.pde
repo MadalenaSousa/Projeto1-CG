@@ -27,6 +27,8 @@ class Lampada {
   void desenhaLampada(){
     /*----------------------------------------------------LAMPADA---------------------------------------------------------*/
     if(ligarLampada) {
+      ambientLight(0, 0, 0);
+      lightSpecular(colorR, colorG, colorB);
       pointLight(colorR, colorG, colorB, centroX/2, centroY/2, 550);
     }
     pushMatrix();
