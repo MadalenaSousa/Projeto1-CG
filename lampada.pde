@@ -30,7 +30,10 @@ class Lampada {
       pointLight(colorR, colorG, colorB, centroX/2, centroY/2, 550);
     }
     pushMatrix();
-      fill(220, 250, 239, 125);
+      ambient(245, 245, 245);
+      fill(245, 245, 245, 100);
+      specular(245, 245, 245);
+      shininess(100);
       translate(centroX/2, centroY/2, 520);
       sphere(20);
     popMatrix();

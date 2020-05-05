@@ -1,11 +1,11 @@
 import processing.opengl.*;
 
-int xS = 1000;
-int yS = 1000;
-int zS = 1000;
+int xS = 1500;
+int yS = 1500;
+int zS = 1500;
 
-float centroX = 500;
-float centroY = 500;
+float centroX = 750;
+float centroY = 750;
 
 boolean PERSPETIVA = false;
 float angulo;
@@ -24,7 +24,7 @@ Cubo cuboCadeira, cuboDourado;
 Cilindro pernaCadeira, rodasCadeira, copaLampada, pernaLampada, baseLampada;
 Cadeira cadeira;
 Lampada lampada;
-Chao chao;
+Planos chao, parede1, parede2, parede3, parede4, porta;
 
 void setup() {
   colorMode(RGB);
@@ -50,16 +50,20 @@ void setup() {
   baseLampada = new Cilindro(500, 25, 80, 20, "gold", true, true);
   lampada = new Lampada(copaLampada, pernaLampada, baseLampada, false);
   
-  chao = new Chao("wood");
+  chao = new Planos("chao");
+  parede1 = new Planos("parede1");
+  parede2 = new Planos("parede2");
+  parede3 = new Planos("parede3");
+  parede4 = new Planos("parede4");
 }
 
 void draw() {
   
   /*-------------------------CAMARA&PERSPETIVA----------------------------*/
   if (PERSPETIVA == true) {
-    perspective(PI/2, width/height, 1, 5000);
+    perspective(PI/2, xS/yS, 1, 5000);
   } else if (PERSPETIVA == false) {
-    ortho(-width/2, width/2, -height/2, height/2, -5000, 5000);
+    ortho(-xS/2, yS/2, -yS/2, yS/2, -5000, 5000);
   }
 
   camera(poX, poY, poZ, centroX, centroY, 0, 0, 0, -1);
@@ -68,12 +72,12 @@ void draw() {
   if(luzAmbiente) {
     ambientLight(0, 0, 0);
     lightSpecular(200, 200, 200);
-    pointLight(150, 150, 150, centroX, centroY, height);
+    pointLight(150, 150, 150, centroX, centroY, zS);
     background(250, 240, 222);
   } else {
     ambientLight(0, 0, 0);
     lightSpecular(30, 30, 30);
-    spotLight(30, 30, 30, centroX, centroY, height, 0, 0, -1, PI, 1);
+    spotLight(30, 30, 30, centroX, centroY, zS, 0, 0, -1, PI, 1);
     background(30, 30, 30);
   }
   
@@ -86,7 +90,12 @@ void draw() {
   cadeira.desenhaCadeira();
   popMatrix();
   
-  chao.desenhaChao();
+  chao.desenha();
+  parede1.desenha();
+  parede2.desenha();
+  parede3.desenha();
+  parede4.desenha();
+  porta.desenha();
   
   /*-----------------------------TEXTO------------------------------------*/
   fill(255);

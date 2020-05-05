@@ -183,14 +183,14 @@ class Cadeira {
   
   void moverRodas() {
     if(keyCode == 'W' || keyCode == 'w') {
-      if(transX < width/2 - offsetXCadeira) {
+      if(transX < xS/2 - offsetXCadeira) {
         transX = transX + 5; //mover cadeira total
         angRodinha = angRodinha + 0.1; //rodar as rodas
       }
       
       turn = true; //alterar direção das rodas
     } else if(keyCode == 'S' || keyCode == 's') {
-      if(transX > - (width/2 - offsetXCadeira)) {
+      if(transX > - (xS/2 - offsetXCadeira)) {
         transX = transX - 5; //mover cadeira total
         angRodinha = angRodinha - 0.1; //rodar as rodas
       }
@@ -199,14 +199,14 @@ class Cadeira {
     } 
     
     if(keyCode == 'A' || keyCode == 'a') {
-      if(transY < width/2 - offsetYCadeira) {
+      if(transY < xS/2 - offsetYCadeira) {
         transY = transY + 5; //mover cadeira total
         angRodinha = angRodinha - 0.1;
       }
       
       turn = false; //alterar direção das rodas  
     } else if(keyCode == 'D' || keyCode == 'd') {
-      if(transY > - (width/2 - offsetYCadeira)) {
+      if(transY > - (xS/2 - offsetYCadeira)) {
         transY = transY - 5; //mover cadeira total
         angRodinha = angRodinha + 0.1; //rodar as rodas
       }

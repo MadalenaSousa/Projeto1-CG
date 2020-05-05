@@ -59,10 +59,10 @@ class Cilindro {
         specular(0.628281 * 255, 0.555802 * 255, 0.366065 * 255);
         shininess(52.2);
       } else if(tipo == "silver"){
-      ambient(0.19225 * 255, 0.19225 * 255, 0.19225 * 255);
-      fill(0.50754 * 255, 0.50754 * 255, 0.50754 * 255);
-      specular(0.508273 * 255, 0.508273 * 255, 0.508273 * 255);
-      shininess(51.2);
+        ambient(0.19225 * 255, 0.19225 * 255, 0.19225 * 255);
+        fill(0.50754 * 255, 0.50754 * 255, 0.50754 * 255);
+        specular(0.508273 * 255, 0.508273 * 255, 0.508273 * 255);
+        shininess(51.2);
       }
       vertex(raioCilindro2 * cos(angCilindro * i), raioCilindro2 * sin(angCilindro * i), altCilindro / 2, 0, 0);
       vertex(raioCilindro2 * cos(angCilindro * (i+1)), raioCilindro2 * sin(angCilindro * (i+1)), altCilindro / 2, 0, 1);
