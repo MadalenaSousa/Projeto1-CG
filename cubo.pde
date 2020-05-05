@@ -14,9 +14,8 @@ class Cubo {
   void desenhaCubo() {
     shapeMode(CENTER);
   
-    beginShape(QUADS);
     
-    if(tipo == "blueFabric") {
+    /*if(tipo == "blueFabric") {
       ambient(181, 210, 211);
       fill(181, 210, 211);
       specular(181, 210, 211);
@@ -27,7 +26,6 @@ class Cubo {
       fill(211, 143, 191);
       specular(211, 143, 191);
       shininess(1);
-      texture(whiteFabric);
     } else if(tipo == "gold"){
       ambient(0.24725 * 255, 0.1995 * 255, 0.0745 * 255);
       fill(0.75164 * 255, 0.60648 * 255, 0.22648 * 255);
@@ -43,7 +41,16 @@ class Cubo {
       fill(181, 210, 211);
       specular(181, 210, 211);
       shininess(1);
-    }  
+    }*/
+    
+    ambient(211, 143, 191);
+    fill(211, 143, 191);
+    specular(211, 143, 191);
+    shininess(1);
+    
+    beginShape(QUADS);
+    
+    texture(whiteFabric);
     
     //x = -aresta/2 //trás
     vertex(-aresta/2, -aresta/2, -aresta/2, 0, 0);
