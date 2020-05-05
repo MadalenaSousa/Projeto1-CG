@@ -4,9 +4,6 @@ class Lampada {
   int intensidade = 15;
   int cor[][]={
     {255,255,255},
-    {255,0,  0  },
-    {0,  255,0  },
-    {0,  0,  255},
     {255,255,0  },
     {0,  255,255},
     {255,0,  255},
@@ -18,10 +15,11 @@ class Lampada {
   int colorB  = 255;
   boolean ligarLampada;
 
-  Lampada(Cilindro copa, Cilindro perna, Cilindro base) {
+  Lampada(Cilindro copa, Cilindro perna, Cilindro base, Boolean ligarLampada) {
     this.copa = copa;
     this.perna = perna;
     this.base = base;
+    this.ligarLampada = ligarLampada;
   }
   
   void desenhaLampada(){
@@ -80,7 +78,7 @@ class Lampada {
   
   void alteraCor() {
     if ((key=='c') || (key=='C')) {
-      numColor=(numColor+1)%8;
+      numColor=(numColor+1)%5;
       colorR= cor[numColor][0];
       colorG= cor[numColor][1];
       colorB= cor[numColor][2];

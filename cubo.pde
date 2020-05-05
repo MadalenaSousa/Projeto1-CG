@@ -16,9 +16,9 @@ class Cubo {
     beginShape(QUADS);
     
     if(tipo == "blueFabric") {
-      ambient(181, 210, 211);
-      fill(181, 210, 211);
-      specular(181, 210, 211);
+      ambient(85, 132, 162);
+      fill(85, 132, 162);
+      specular(85, 132, 162);
       shininess(1);
       texture(fabric);
     } else if(tipo == "whiteFabric"){

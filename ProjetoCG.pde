@@ -1,11 +1,11 @@
 import processing.opengl.*;
 
-int xS = 800;
-int yS = 800;
-int zS = 800;
+int xS = 1000;
+int yS = 1000;
+int zS = 1000;
 
-float centroX = 400;
-float centroY = 400;
+float centroX = 500;
+float centroY = 500;
 
 boolean PERSPETIVA = false;
 float angulo;
@@ -28,7 +28,7 @@ Chao chao;
 
 void setup() {
   colorMode(RGB);
-  size(800, 800, P3D);
+  size(1000, 1000, P3D);
   noStroke();
   frameRate(40);
   smooth();
@@ -48,7 +48,7 @@ void setup() {
   copaLampada = new Cilindro(300, 150, 80, 20, "copa",false, false);
   pernaLampada = new Cilindro(25, 25, 500, 20, "gold", true, true);
   baseLampada = new Cilindro(500, 25, 80, 20, "gold", true, true);
-  lampada = new Lampada(copaLampada, pernaLampada, baseLampada);
+  lampada = new Lampada(copaLampada, pernaLampada, baseLampada, false);
   
   chao = new Chao("wood");
 }
@@ -68,7 +68,7 @@ void draw() {
   if(luzAmbiente) {
     ambientLight(0, 0, 0);
     lightSpecular(200, 200, 200);
-    spotLight(150, 150, 150, centroX, centroY, height, 0, 0, -1, PI, 1);
+    pointLight(150, 150, 150, centroX, centroY, height);
     background(250, 240, 222);
   } else {
     ambientLight(0, 0, 0);
@@ -149,6 +149,7 @@ if(keyCode == 't' || keyCode == 'T'){
   
   if(keyCode == 'm' || keyCode == 'M') {
     switchMetals = !switchMetals;
+    Boolean previousLigarLampada = lampada.ligarLampada;
   
     if(switchMetals) {
       cuboCadeira = new Cubo(50, "whiteFabric");
@@ -159,7 +160,7 @@ if(keyCode == 't' || keyCode == 'T'){
       
       pernaLampada = new Cilindro(25, 25, 500, 20, "silver", true, true);
       baseLampada = new Cilindro(500, 25, 80, 20, "silver", true, true);
-      lampada = new Lampada(copaLampada, pernaLampada, baseLampada);
+      lampada = new Lampada(copaLampada, pernaLampada, baseLampada, previousLigarLampada);
     } else {
       cuboCadeira = new Cubo(50, "blueFabric");
       cuboDourado = new Cubo(50, "gold");
@@ -169,7 +170,7 @@ if(keyCode == 't' || keyCode == 'T'){
       
       pernaLampada = new Cilindro(25, 25, 500, 20, "gold", true, true);
       baseLampada = new Cilindro(500, 25, 80, 20, "gold", true, true);
-      lampada = new Lampada(copaLampada, pernaLampada, baseLampada);
+      lampada = new Lampada(copaLampada, pernaLampada, baseLampada, previousLigarLampada);
     }
   }
   
