@@ -14,10 +14,10 @@ class Planos {
     
     if(tipo == "chao") {
       beginShape(QUADS);
-        ambient(152, 111, 61);
-        fill(152, 111, 61);
-        specular(152, 111, 61);
-        shininess(100);
+        ambient(90, 61, 7);
+        fill(90, 61, 7);
+        specular(90, 61, 7);
+        shininess(1);
         texture(wood);
         for(int i = 0; i < totalQuadrados; i++) {
           for(int z = 0; z < totalQuadrados; z++) {
@@ -98,13 +98,12 @@ class Planos {
         fill(152, 111, 61);
         specular(152, 111, 61);
         shininess(100);
-        texture(wallpaper);
         for(int i = 0; i < totalQuadrados; i++) {
           for(int z = 0; z < totalQuadrados; z++) {
-            vertex(xS, (xS/totalQuadrados * i), (xS/totalQuadrados * z), (i/totalQuadrados), (z/totalQuadrados));
-            vertex(xS, (xS/totalQuadrados * i), (xS/totalQuadrados * z) + xS/totalQuadrados, (i/totalQuadrados), (z/totalQuadrados) + 1/totalQuadrados);
-            vertex(xS, (xS/totalQuadrados * i) + xS/totalQuadrados, (xS/totalQuadrados * z) + xS/totalQuadrados, (i/totalQuadrados) + 1/totalQuadrados, (z/totalQuadrados) + 1/totalQuadrados);
-            vertex(xS, (xS/totalQuadrados * i) + xS/totalQuadrados, (xS/totalQuadrados * z), (i/totalQuadrados) + 1/totalQuadrados, (z/totalQuadrados));
+            vertex(xS - 1, (xS/totalQuadrados * i)/2, (xS/totalQuadrados * z)/2, (i/totalQuadrados)/2, (z/totalQuadrados)/2);
+            vertex(xS - 1, (xS/totalQuadrados * i)/2, (xS/totalQuadrados * z)/2 + (xS/totalQuadrados)/2, (i/totalQuadrados)/2, (z/totalQuadrados)/2 + (1/totalQuadrados)/2);
+            vertex(xS - 1, (xS/totalQuadrados * i)/2 + (xS/totalQuadrados)/2, (xS/totalQuadrados * z)/2 + (xS/totalQuadrados)/2, (i/totalQuadrados)/2 + (1/totalQuadrados)/2, (z/totalQuadrados)/2 + (1/totalQuadrados)/2);
+            vertex(xS - 1, (xS/totalQuadrados * i)/2 + (xS/totalQuadrados)/2, (xS/totalQuadrados * z)/2, (i/totalQuadrados) + (1/totalQuadrados)/2, (z/totalQuadrados)/2);
           }
         }
       endShape();

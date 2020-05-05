@@ -24,7 +24,7 @@ Cubo cuboCadeira, cuboDourado;
 Cilindro pernaCadeira, rodasCadeira, copaLampada, pernaLampada, baseLampada;
 Cadeira cadeira;
 Lampada lampada;
-Planos chao, parede1, parede2, parede3, parede4, porta;
+Planos chao, parede1, parede2, parede3, parede4, porta, janela;
 
 void setup() {
   colorMode(RGB);
@@ -55,6 +55,7 @@ void setup() {
   parede2 = new Planos("parede2");
   parede3 = new Planos("parede3");
   parede4 = new Planos("parede4");
+  janela = new Planos("janela");
 }
 
 void draw() {
@@ -95,10 +96,10 @@ void draw() {
   parede2.desenha();
   parede3.desenha();
   parede4.desenha();
-  porta.desenha();
+  janela.desenha();
   
   /*-----------------------------TEXTO------------------------------------*/
-  fill(255);
+  /*fill(255);
   textSize(16);
   textAlign(LEFT);
   pushMatrix();
@@ -110,7 +111,7 @@ void draw() {
     text("Press U/J to elevate the chair up and down", 0, 75, 0);
     text("Keep you mouse pressed to lean the chair", 0, 100, 0);
     text("Use the arrow keys to move the camera", 0, 125, 0);
-  popMatrix();
+  popMatrix();*/
 }
 
 void keyPressed() {

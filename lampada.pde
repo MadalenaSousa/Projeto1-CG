@@ -58,7 +58,7 @@ class Lampada {
 
     pushMatrix();
       translate(centroX/2, centroY/2, 0);
-      scale(0.25, 0.25, 1);
+      scale(0.25, 0.25, 0.5);
       base.desenhaCilindro();
     popMatrix();
   }
