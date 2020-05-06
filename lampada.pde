@@ -24,6 +24,7 @@ class Lampada {
   
   void desenhaLampada(){
     /*----------------------------------------------------LAMPADA---------------------------------------------------------*/
+    shapeMode(CENTER);
     if(ligarLampada) {
       ambientLight(0, 0, 0);
       lightSpecular(colorR, colorG, colorB);
