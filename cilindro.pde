@@ -23,7 +23,6 @@ class Cilindro {
   void desenhaCilindro() {
     topo.beginShape();
       for(int i = 0; i < divisoes; i++) {
-        print("olaolaola");
         if(tipo == "copa") {
           topo.ambient(0.25 * 255, 0.20725 * 255, 0.20725 * 255);
           topo.fill(1.0 * 255, 0.829 * 255, 0.829 * 255, 0.92 * 255);
