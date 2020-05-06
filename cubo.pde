@@ -15,8 +15,8 @@ class Cubo {
   
   void desenhaCubo() {
     shapeMode(CORNER);
-    cubo.beginShape(QUADS);
     
+    cubo.beginShape(QUADS);
     if(tipo == "blueFabric") {
       cubo.ambient(85, 132, 162);
       cubo.fill(85, 132, 162);

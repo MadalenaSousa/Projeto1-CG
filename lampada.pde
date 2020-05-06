@@ -14,12 +14,14 @@ class Lampada {
   int colorG  = 255;
   int colorB  = 255;
   boolean ligarLampada;
+  PShape esfera;
 
   Lampada(Cilindro copa, Cilindro perna, Cilindro base, Boolean ligarLampada) {
     this.copa = copa;
     this.perna = perna;
     this.base = base;
     this.ligarLampada = ligarLampada;
+    esfera = createShape(SPHERE, 20);
   }
   
   void desenhaLampada(){
@@ -35,7 +37,7 @@ class Lampada {
       specular(245, 245, 245);
       shininess(100);
       translate(centroX/2, centroY/2, 520);
-      sphere(20);
+      shape(esfera);
     popMatrix();
 
 /*------------------------------------------------------COPA----------------------------------------------------------*/

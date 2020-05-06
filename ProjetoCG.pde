@@ -41,13 +41,13 @@ void setup() {
   
   cuboCadeira = new Cubo(50, "blueFabric");
   cuboDourado = new Cubo(50, "gold");
-  pernaCadeira = new Cilindro(25, 25, 50, 20, "gold", true, true);
-  rodasCadeira = new Cilindro(25, 25, 25, 30, "gold", true, true);
+  pernaCadeira = new Cilindro(25, 25, 50, 10, "gold", true, true);
+  rodasCadeira = new Cilindro(25, 25, 25, 10, "gold", true, true);
   cadeira = new Cadeira(cuboCadeira, cuboDourado, pernaCadeira, rodasCadeira);
   
-  copaLampada = new Cilindro(300, 150, 80, 20, "copa",false, false);
-  pernaLampada = new Cilindro(25, 25, 500, 20, "gold", true, true);
-  baseLampada = new Cilindro(500, 25, 80, 20, "gold", true, true);
+  copaLampada = new Cilindro(300, 150, 80, 10, "copa",false, false);
+  pernaLampada = new Cilindro(25, 25, 500, 10, "gold", true, true);
+  baseLampada = new Cilindro(500, 25, 80, 10, "gold", true, true);
   lampada = new Lampada(copaLampada, pernaLampada, baseLampada, false);
   
   chao = new Planos("chao");
