@@ -14,10 +14,10 @@ class Planos {
     chao = createShape();
     
     chao.beginShape(QUADS);
-      //chao.ambient(72, 40, 7);
-      chao.fill(0, 0, 0);
-      //chao.specular(72, 40, 7);
-      //chao.shininess(1);
+      chao.ambient(72, 40, 7);
+      chao.fill(72, 40, 7);
+      chao.specular(72, 40, 7);
+      chao.shininess(1);
       chao.texture(wood);
       for(int i = 0; i < totalQuadrados; i++) {
         for(int z = 0; z < totalQuadrados; z++) {
@@ -32,10 +32,6 @@ class Planos {
     tapete = createShape();
 
     tapete.beginShape(QUADS);
-      //chao.ambient(72, 40, 7);
-      tapete.fill(0, 0, 0);
-      //chao.specular(72, 40, 7);
-      //chao.shininess(1);
       tapete.texture(tapeteTexture);
       for(int i = 0; i < totalQuadrados; i++) {
         for(int z = 0; z < totalQuadrados; z++) {
