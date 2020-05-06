@@ -14,31 +14,22 @@ class Lampada {
   int colorG  = 255;
   int colorB  = 255;
   boolean ligarLampada;
-  PShape esfera;
+  PShape lightBulb;
 
   Lampada(Cilindro copa, Cilindro perna, Cilindro base, Boolean ligarLampada) {
     this.copa = copa;
     this.perna = perna;
     this.base = base;
     this.ligarLampada = ligarLampada;
-    esfera = createShape(SPHERE, 20);
   }
   
   void desenhaLampada(){
-    /*----------------------------------------------------LAMPADA---------------------------------------------------------*/
+    /*----------------------------------------------------LUZ---------------------------------------------------------*/
     if(ligarLampada) {
       ambientLight(0, 0, 0);
       lightSpecular(colorR, colorG, colorB);
       pointLight(colorR, colorG, colorB, centroX/2, centroY/2, 550);
     }
-    pushMatrix();
-      ambient(245, 245, 245);
-      fill(245, 245, 245, 100);
-      specular(245, 245, 245);
-      shininess(100);
-      translate(centroX/2, centroY/2, 520);
-      shape(esfera);
-    popMatrix();
 
 /*------------------------------------------------------COPA----------------------------------------------------------*/
 
@@ -62,6 +53,16 @@ class Lampada {
       translate(centroX/2, centroY/2, 0);
       scale(0.25, 0.25, 0.5);
       base.desenhaCilindro();
+    popMatrix();
+    
+/*------------------------------------------------------LAMPADA----------------------------------------------------------*/
+    pushMatrix();
+        ambient(245, 245, 245);
+        fill(245, 245, 245, 100);
+        specular(245, 245, 245);
+        shininess(100);
+        translate(centroX/2, centroY/2, 520);
+        sphere(20);
     popMatrix();
   }
   

@@ -9,7 +9,7 @@ float centroY = 750;
 
 boolean PERSPETIVA = false;
 float angulo;
-float raio = 400;
+float raio = 750;
 
 float poX = centroX + (raio * cos(angulo));
 float poY = centroY + (raio * sin(angulo));
@@ -98,9 +98,9 @@ void draw() {
   parede4.desenha();
   //janela.desenha();
   
-  pushMatrix();
+  /*pushMatrix();
     desenhaEixos();
-  popMatrix();
+  popMatrix();*/
   
   /*-----------------------------TEXTO------------------------------------*/
   /*fill(255);
