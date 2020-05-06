@@ -84,11 +84,11 @@ void draw() {
   
   /*-----------------------------OBJETOS----------------------------------*/
   pushMatrix();
-  lampada.desenhaLampada();
+    lampada.desenhaLampada();
   popMatrix();
   
   pushMatrix();
-  cadeira.desenhaCadeira();
+    cadeira.desenhaCadeira();
   popMatrix();
   
   chao.desenha();
