@@ -25,6 +25,7 @@ Cilindro pernaCadeira, rodasCadeira, copaLampada, pernaLampada, baseLampada;
 Cadeira cadeira;
 Lampada lampada;
 Planos chao, parede1, parede2, parede3, parede4, porta, tapete;
+Mesa mesa;
 
 void setup() {
   colorMode(RGB);
@@ -46,7 +47,7 @@ void setup() {
   cadeira = new Cadeira(cuboCadeira, cuboDourado, pernaCadeira, rodasCadeira);
   
   copaLampada = new Cilindro(300, 150, 80, 10, "copaAzul",false, false);
-  pernaLampada = new Cilindro(25, 25, 500, 10, "gold", true, true);
+  pernaLampada = new Cilindro(25, 25, 500, 5, "gold", true, true);
   baseLampada = new Cilindro(500, 25, 80, 10, "gold", true, true);
   lampada = new Lampada(copaLampada, pernaLampada, baseLampada, false);
   
@@ -56,6 +57,8 @@ void setup() {
   parede3 = new Planos("parede3");
   parede4 = new Planos("parede4");
   tapete = new Planos("tapete");
+  
+  mesa = new Mesa();
 }
 
 void draw() {
@@ -99,6 +102,8 @@ void draw() {
   parede4.desenha();
   
   tapete.desenha();
+  
+  mesa.desenhaMesa();
   
   /*pushMatrix();
     desenhaEixos();

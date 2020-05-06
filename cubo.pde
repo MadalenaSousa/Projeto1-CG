@@ -36,10 +36,10 @@ class Cubo {
         cubo.specular(0.508273 * 255, 0.508273 * 255, 0.508273 * 255);
         cubo.shininess(51.2);
       } else if(tipo == "none") {
-        cubo.ambient(181, 210, 211);
-        cubo.fill(181, 210, 211);
-        cubo.specular(181, 210, 211);
-        cubo.shininess(1);
+        cubo.ambient(0, 0, 0);
+        cubo.fill(0.01 * 255, 0.01 * 255, 0.01 * 255);
+        cubo.specular(0.5 * 255, 0.5 * 255, 0.5 * 255);
+        cubo.shininess(32.0);
       }
       
       //x = -aresta/2 //trás
