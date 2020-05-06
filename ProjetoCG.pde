@@ -7,7 +7,7 @@ int zS = 1500;
 float centroX = 750;
 float centroY = 750;
 
-boolean PERSPETIVA = false;
+boolean PERSPETIVA = true;
 float angulo;
 float raio = 750;
 
@@ -25,6 +25,7 @@ Cilindro pernaCadeira, rodasCadeira, copaLampada, pernaLampada, baseLampada;
 Cadeira cadeira;
 Lampada lampada;
 Planos chao, parede1, parede2, parede3, parede4, porta, janela;
+Led led;
 
 void setup() {
   colorMode(RGB);
@@ -56,6 +57,8 @@ void setup() {
   parede3 = new Planos("parede3");
   parede4 = new Planos("parede4");
   janela = new Planos("janela");
+  
+  led = new Led();
 }
 
 void draw() {
@@ -97,6 +100,8 @@ void draw() {
   parede3.desenha();
   parede4.desenha();
   //janela.desenha();
+  
+  led.desenhaLed();
   
   /*pushMatrix();
     desenhaEixos();

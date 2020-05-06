@@ -7,7 +7,6 @@ class Lampada {
     {255,255,0  },
     {0,  255,255},
     {255,0,  255},
-    {  0, 0,  0 },
   };
   int numColor = 0;
   int colorR  = 255;  
@@ -68,23 +67,57 @@ class Lampada {
   
   void alteraIntensidade() {
     if(keyCode == '0') {
-        if(colorR > 0 && colorG > 0 && colorB > 0) { //NÃO MUDA A INTENSIDADE QUANDO MUDO A COR DA LUZ
+      if(numColor == 0){ //branco
+        if(colorR > 0 && colorG > 0 && colorB > 0) {
           colorR = colorR - intensidade;
           colorG = colorG - intensidade;
           colorB = colorB - intensidade;
         }
-    } else if(keyCode == '9') {
-      if(colorR < 255 && colorG < 255 && colorB < 255) {
-        colorR = colorR + intensidade;
-        colorG = colorG + intensidade;
-        colorB = colorB + intensidade;
+      } else if(numColor == 1){ //amarelo
+        if(colorR > 0 && colorG > 0 && colorB == 0) {
+          colorR = colorR - intensidade;
+          colorG = colorG - intensidade;
+        }
+      } else if(numColor == 2){ //ciano
+        if(colorR == 0 && colorG > 0 && colorB > 0) {
+          colorG = colorG - intensidade;
+          colorB = colorB - intensidade;
+        }
+      } else if(numColor == 3){ //magenta
+        if(colorR > 0 && colorG == 0 && colorB > 0) {
+          colorR = colorR - intensidade;
+          colorB = colorB - intensidade;
+        } 
       }
+    } else if(keyCode == '9') {
+      if(numColor == 0){ //branco
+        if(colorR < 255 && colorG < 255 && colorB < 255) {
+          colorR = colorR + intensidade;
+          colorG = colorG + intensidade;
+          colorB = colorB + intensidade;
+        }
+      } else if(numColor == 1){ //amarelo
+        if(colorR < 255 && colorG < 255 && colorB == 0) {
+          colorR = colorR + intensidade;
+          colorG = colorG + intensidade;
+        }
+      } else if(numColor == 2){ //ciano
+        if(colorR == 0 && colorG < 255 && colorB < 255) {
+          colorG = colorG + intensidade;
+          colorB = colorB + intensidade;
+        }
+      } else if(numColor == 3){ //magenta
+        if(colorR < 255 && colorG == 0 && colorB < 255) {
+          colorR = colorR + intensidade;
+          colorB = colorB + intensidade;
+        }
+      } 
     }
   }
   
   void alteraCor() {
     if ((key=='c') || (key=='C')) {
-      numColor=(numColor+1)%5;
+      numColor=(numColor+1)%4;
       colorR= cor[numColor][0];
       colorG= cor[numColor][1];
       colorB= cor[numColor][2];

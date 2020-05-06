@@ -84,6 +84,21 @@ class Cilindro {
           corpo.vertex(raioCilindro1 * cos(angCilindro * i), raioCilindro1 * sin(angCilindro * i), - altCilindro / 2, 1, 0);
         corpo.endShape();
       }
+    } else if(tipo == "led"){
+      for(int i = 0; i < this.divisoes; i++) {
+        corpo.beginShape(QUADS);
+          corpo.ambient(255, 0, 255);
+          corpo.fill(255, 0, 255, 100);
+          corpo.specular(255, 255, 255);
+          corpo.shininess(255);
+          pointLight(255, 255, 255, 0, 0, i * 10);
+        
+          corpo.vertex(raioCilindro2 * cos(angCilindro * i), raioCilindro2 * sin(angCilindro * i), altCilindro / 2, 0, 0);
+          corpo.vertex(raioCilindro2 * cos(angCilindro * (i+1)), raioCilindro2 * sin(angCilindro * (i+1)), altCilindro / 2, 0, 1);
+          corpo.vertex(raioCilindro1 * cos(angCilindro * (i+1)), raioCilindro1 * sin(angCilindro * (i+1)), - altCilindro / 2, 1, 1);
+          corpo.vertex(raioCilindro1 * cos(angCilindro * i), raioCilindro1 * sin(angCilindro * i), - altCilindro / 2, 1, 0);
+        corpo.endShape();
+      }
     }
     
     fundo = createShape();
@@ -109,6 +124,7 @@ class Cilindro {
           fundo.vertex(raioCilindro2 * cos(angCilindro * i), raioCilindro2 * sin(angCilindro * i), altCilindro / 2, i, i+1);
         }
     fundo.endShape(CLOSE);
+   
   }
 
   void desenhaCilindro() {    
