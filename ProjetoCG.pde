@@ -94,35 +94,38 @@ void draw() {
     cadeira.desenhaCadeira();
   popMatrix();
   
-  chao.desenha();
-  
-  parede1.desenha();
-  parede2.desenha();
-  parede3.desenha();
-  parede4.desenha();
-  
-  tapete.desenha();
-  
-  mesa.desenhaMesa();
+  pushMatrix();
+    chao.desenha();
+    
+    parede1.desenha();
+    parede2.desenha();
+    parede3.desenha();
+    parede4.desenha();
+    
+    tapete.desenha();
+    
+    mesa.desenhaMesa();
+  popMatrix();
   
   /*pushMatrix();
     desenhaEixos();
   popMatrix();*/
   
   /*-----------------------------TEXTO------------------------------------*/
-  /*fill(255);
-  textSize(16);
-  textAlign(LEFT);
+  fill(255);
+  textSize(24);
+  textAlign(CENTER);
   pushMatrix();
-    translate(625, 750, 1);
-    rotateZ(-PI/2);
+    translate(xS - 2, centroY, 550);
+    rotateZ(PI/2);
+    rotateX(-PI/2);
     text("Press ENTER to spin the chair", 0, 0, 0);
     text("Press S/W to move the chair back and forward", 0, 25, 0);
     text("Press A/D to move the chair left and right", 0, 50, 0);
     text("Press U/J to elevate the chair up and down", 0, 75, 0);
     text("Keep you mouse pressed to lean the chair", 0, 100, 0);
     text("Use the arrow keys to move the camera", 0, 125, 0);
-  popMatrix();*/
+  popMatrix();
 }
 
 void keyPressed() {
