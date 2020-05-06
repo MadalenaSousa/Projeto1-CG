@@ -17,11 +17,7 @@ class Cilindro {
     angCilindro = TWO_PI / this.divisoes;
     
     topo = createShape();
-    corpo = createShape();
-    fundo = createShape();
-  }
-
-  void desenhaCilindro() {
+    
     topo.beginShape();
         if(tipo == "copa") {
           topo.ambient(0.25 * 255, 0.20725 * 255, 0.20725 * 255);
@@ -44,6 +40,7 @@ class Cilindro {
         }
     topo.endShape(CLOSE);
     
+    corpo = createShape();
     
     if(tipo == "copa") {   
       for(int i = 0; i < divisoes; i++) {
@@ -89,6 +86,8 @@ class Cilindro {
       }
     }
     
+    fundo = createShape();
+    
     fundo.beginShape();
         if(tipo == "copa") {
           fundo.ambient(0.25 * 255, 0.20725 * 255, 0.20725 * 255);
@@ -110,7 +109,9 @@ class Cilindro {
           fundo.vertex(raioCilindro2 * cos(angCilindro * i), raioCilindro2 * sin(angCilindro * i), altCilindro / 2, i, i+1);
         }
     fundo.endShape(CLOSE);
-    
+  }
+
+  void desenhaCilindro() {    
     //topo do cilindro
     if(fundoOn){
       shape(fundo);
