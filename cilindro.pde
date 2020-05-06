@@ -3,7 +3,7 @@ class Cilindro {
   int raioCilindro1, raioCilindro2, altCilindro, divisoes;
   String tipo;
   Boolean topoOn, fundoOn;
-  float angCilindro = TWO_PI / divisoes;
+  float angCilindro;
   PShape topo, corpo, fundo;
   
   Cilindro(int raioCilindro1, int raioCilindro2, int altCilindro, int divisoes, String tipo, boolean topoOn, boolean fundoOn) {
@@ -14,6 +14,7 @@ class Cilindro {
     this.tipo = tipo;
     this.topoOn = topoOn;
     this.fundoOn = fundoOn;
+    angCilindro = TWO_PI / divisoes;
     
     topo = createShape();
     corpo = createShape();
@@ -22,7 +23,6 @@ class Cilindro {
 
   void desenhaCilindro() {
     topo.beginShape();
-      for(int i = 0; i < divisoes; i++) {
         if(tipo == "copa") {
           topo.ambient(0.25 * 255, 0.20725 * 255, 0.20725 * 255);
           topo.fill(1.0 * 255, 0.829 * 255, 0.829 * 255, 0.92 * 255);
@@ -39,8 +39,9 @@ class Cilindro {
           topo.specular(0.508273 * 255, 0.508273 * 255, 0.508273 * 255);
           topo.shininess(51.2);
         }
-        topo.vertex(raioCilindro1 * cos(angCilindro * i), raioCilindro1 * sin(angCilindro * i), - altCilindro / 2, i, i+1);
-      }
+        for(int i = 0; i < divisoes; i++) {
+          topo.vertex(raioCilindro1 * cos(angCilindro * i), raioCilindro1 * sin(angCilindro * i), - altCilindro / 2, i, i+1);
+        }
     topo.endShape(CLOSE);
     
     for(int i = 0; i < divisoes; i++) {
@@ -69,7 +70,6 @@ class Cilindro {
     }
     
     fundo.beginShape();
-      for(int i = 0; i < divisoes; i++) {
         if(tipo == "copa") {
           fundo.ambient(0.25 * 255, 0.20725 * 255, 0.20725 * 255);
           fundo.fill(1.0 * 255, 0.829 * 255, 0.829 * 255, 0.92 * 255);
@@ -86,8 +86,9 @@ class Cilindro {
           fundo.specular(0.628281 * 255, 0.555802 * 255, 0.366065 * 255);
           fundo.shininess(52.2);
         }
-        fundo.vertex(raioCilindro2 * cos(angCilindro * i), raioCilindro2 * sin(angCilindro * i), altCilindro / 2, i, i+1);
-      }
+        for(int i = 0; i < divisoes; i++) {
+          fundo.vertex(raioCilindro2 * cos(angCilindro * i), raioCilindro2 * sin(angCilindro * i), altCilindro / 2, i, i+1);
+        }
     fundo.endShape(CLOSE);
     
     //topo do cilindro

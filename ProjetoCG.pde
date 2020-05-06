@@ -84,7 +84,7 @@ void draw() {
   
   /*-----------------------------OBJETOS----------------------------------*/
   pushMatrix();
-  //lampada.desenhaLampada();
+  lampada.desenhaLampada();
   popMatrix();
   
   pushMatrix();
@@ -92,10 +92,10 @@ void draw() {
   popMatrix();
   
   chao.desenha();
-  //parede1.desenha();
-  //parede2.desenha();
-  //parede3.desenha();
-//parede4.desenha();
+  parede1.desenha();
+  parede2.desenha();
+  parede3.desenha();
+  parede4.desenha();
   //janela.desenha();
   
   pushMatrix();

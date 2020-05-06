@@ -140,7 +140,6 @@ class Cadeira {
   fill(#A27F4A);
   pushMatrix();
       translate(centroX, centroY, 25);
-      
       for(int i = 0; i < 6; i++) {    
         pushMatrix();
           translate(120 * cos((i * TWO_PI/6) + PI/6), 120 * sin((i * TWO_PI/6) + PI/6), 0); //posicionar rodinhas
