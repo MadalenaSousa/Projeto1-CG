@@ -25,10 +25,10 @@ class Cilindro {
           topo.specular(0.296648 * 255, 0.296648 * 255, 0.296648* 255);
           topo.shininess(11.264);
         } else if(tipo == "gold") {
-          topo.ambient(0.24725 * 255, 0.1995 * 255, 0.0745 * 255);
-          topo.fill(0.75164 * 255, 0.60648 * 255, 0.22648 * 255);
-          topo.specular(0.628281 * 255, 0.555802 * 255, 0.366065 * 255);
-          topo.shininess(52.2);
+          topo.ambient(0.329412 * 255, 0.223529 * 255, 0.027451 * 255);
+          topo.fill(0.780392 * 255, 0.568627 * 255, 0.113725 * 255);
+          topo.specular(0.992157 * 255, 0.941176 * 255, 0.807843 * 255);
+          topo.shininess(27.8974);
         } else if(tipo == "silver"){
           topo.ambient(0.19225 * 255, 0.19225 * 255, 0.19225 * 255);
           topo.fill(0.50754 * 255, 0.50754 * 255, 0.50754 * 255);
@@ -42,13 +42,27 @@ class Cilindro {
     
     corpo = createShape();
     
-    if(tipo == "copa") {   
+    if(tipo == "copaAzul") {   
       for(int i = 0; i < divisoes; i++) {
         corpo.beginShape(QUADS);
-          corpo.ambient(0.25 * 255, 0.20725 * 255, 0.20725 * 255);
-          corpo.fill(1.0 * 255, 0.829 * 255, 0.829 * 255, 0.92 * 255);
-          corpo.specular(0.296648 * 255, 0.296648 * 255, 0.296648* 255);
-          corpo.shininess(11.264);
+          corpo.ambient(0 * 255, 1 * 255, 0.06 * 255);
+          corpo.fill(0 * 255, 0.50980392 * 255, 0.50980392 * 255, 0.92 * 255);
+          corpo.specular(0.50196078 * 255, 0.50196078 * 255, 0.50196078* 255);
+          corpo.shininess(32.0);
+          
+          corpo.vertex(raioCilindro2 * cos(angCilindro * i), raioCilindro2 * sin(angCilindro * i), altCilindro / 2, 0, 0);
+          corpo.vertex(raioCilindro2 * cos(angCilindro * (i+1)), raioCilindro2 * sin(angCilindro * (i+1)), altCilindro / 2, 0, 1);
+          corpo.vertex(raioCilindro1 * cos(angCilindro * (i+1)), raioCilindro1 * sin(angCilindro * (i+1)), - altCilindro / 2, 1, 1);
+          corpo.vertex(raioCilindro1 * cos(angCilindro * i), raioCilindro1 * sin(angCilindro * i), - altCilindro / 2, 1, 0);
+        corpo.endShape();
+      }
+    } else if(tipo == "copaRosa") {   
+      for(int i = 0; i < divisoes; i++) {
+        corpo.beginShape(QUADS);
+          corpo.ambient(0.06 * 255, 0 * 255, 1 * 255);
+          corpo.fill(0.50980392 * 255, 0 * 255, 0.50980392 * 255, 0.92 * 255);
+          corpo.specular(0.50196078 * 255, 0.50196078 * 255, 0.50196078* 255);
+          corpo.shininess(32.0);
           
           corpo.vertex(raioCilindro2 * cos(angCilindro * i), raioCilindro2 * sin(angCilindro * i), altCilindro / 2, 0, 0);
           corpo.vertex(raioCilindro2 * cos(angCilindro * (i+1)), raioCilindro2 * sin(angCilindro * (i+1)), altCilindro / 2, 0, 1);
@@ -59,10 +73,10 @@ class Cilindro {
     } else if(tipo == "gold") {
       for(int i = 0; i < this.divisoes; i++) {
         corpo.beginShape(QUADS);
-          corpo.ambient(0.24725 * 255, 0.1995 * 255, 0.0745 * 255);
-          corpo.fill(0.75164 * 255, 0.60648 * 255, 0.22648 * 255);
-          corpo.specular(0.628281 * 255, 0.555802 * 255, 0.366065 * 255);
-          corpo.shininess(52.2);
+          corpo.ambient(0.329412 * 255, 0.223529 * 255, 0.027451 * 255);
+          corpo.fill(0.780392 * 255, 0.568627 * 255, 0.113725 * 255);
+          corpo.specular(0.992157 * 255, 0.941176 * 255, 0.807843 * 255);
+          corpo.shininess(27.8974);
       
           corpo.vertex(raioCilindro2 * cos(angCilindro * i), raioCilindro2 * sin(angCilindro * i), altCilindro / 2, 0, 0);
           corpo.vertex(raioCilindro2 * cos(angCilindro * (i+1)), raioCilindro2 * sin(angCilindro * (i+1)), altCilindro / 2, 0, 1);
@@ -100,10 +114,10 @@ class Cilindro {
           fundo.specular(0.508273 * 255, 0.508273 * 255, 0.508273 * 255);
           fundo.shininess(51.2);
         } else if(tipo == "gold") {
-          fundo.ambient(0.24725 * 255, 0.1995 * 255, 0.0745 * 255);
-          fundo.fill(0.75164 * 255, 0.60648 * 255, 0.22648 * 255);
-          fundo.specular(0.628281 * 255, 0.555802 * 255, 0.366065 * 255);
-          fundo.shininess(52.2);
+          fundo.ambient(0.329412 * 255, 0.223529 * 255, 0.027451 * 255);
+          fundo.fill(0.780392 * 255, 0.568627 * 255, 0.113725 * 255);
+          fundo.specular(0.992157 * 255, 0.941176 * 255, 0.807843 * 255);
+          fundo.shininess(27.8974);
         }
         for(int i = 0; i < this.divisoes; i++) {
           fundo.vertex(raioCilindro2 * cos(angCilindro * i), raioCilindro2 * sin(angCilindro * i), altCilindro / 2, i, i+1);

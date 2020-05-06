@@ -19,17 +19,17 @@ class Cubo {
         cubo.specular(85, 132, 162);
         cubo.shininess(1);
         cubo.texture(fabric);
-      } else if(tipo == "whiteFabric"){
+      } else if(tipo == "pinkFabric"){
         cubo.ambient(211, 143, 191);
         cubo.fill(211, 143, 191);
         cubo.specular(211, 143, 191);
         cubo.shininess(1);
         cubo.texture(fabric);
       } else if(tipo == "gold"){
-        cubo.ambient(0.24725 * 255, 0.1995 * 255, 0.0745 * 255);
-        cubo.fill(0.75164 * 255, 0.60648 * 255, 0.22648 * 255);
-        cubo.specular(0.628281 * 255, 0.555802 * 255, 0.366065 * 255);
-        cubo.shininess(52.2);
+        cubo.ambient(0.329412 * 255, 0.223529 * 255, 0.027451 * 255);
+        cubo.fill(0.780392 * 255, 0.568627 * 255, 0.113725 * 255);
+        cubo.specular(0.992157 * 255, 0.941176 * 255, 0.807843 * 255);
+        cubo.shininess(27.8974);
       } else if(tipo == "silver"){
         cubo.ambient(0.19225 * 255, 0.19225 * 255, 0.19225 * 255);
         cubo.fill(0.50754 * 255, 0.50754 * 255, 0.50754 * 255);

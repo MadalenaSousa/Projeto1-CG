@@ -24,7 +24,7 @@ Cubo cuboCadeira, cuboDourado;
 Cilindro pernaCadeira, rodasCadeira, copaLampada, pernaLampada, baseLampada;
 Cadeira cadeira;
 Lampada lampada;
-Planos chao, parede1, parede2, parede3, parede4, porta, janela;
+Planos chao, parede1, parede2, parede3, parede4, porta, tapete;
 
 void setup() {
   colorMode(RGB);
@@ -45,7 +45,7 @@ void setup() {
   rodasCadeira = new Cilindro(25, 25, 25, 10, "gold", true, true);
   cadeira = new Cadeira(cuboCadeira, cuboDourado, pernaCadeira, rodasCadeira);
   
-  copaLampada = new Cilindro(300, 150, 80, 10, "copa",false, false);
+  copaLampada = new Cilindro(300, 150, 80, 10, "copaAzul",false, false);
   pernaLampada = new Cilindro(25, 25, 500, 10, "gold", true, true);
   baseLampada = new Cilindro(500, 25, 80, 10, "gold", true, true);
   lampada = new Lampada(copaLampada, pernaLampada, baseLampada, false);
@@ -55,7 +55,7 @@ void setup() {
   parede2 = new Planos("parede2");
   parede3 = new Planos("parede3");
   parede4 = new Planos("parede4");
-  janela = new Planos("janela");
+  tapete = new Planos("tapete");
 }
 
 void draw() {
@@ -92,11 +92,13 @@ void draw() {
   popMatrix();
   
   chao.desenha();
+  
   parede1.desenha();
   parede2.desenha();
   parede3.desenha();
   parede4.desenha();
-  //janela.desenha();
+  
+  tapete.desenha();
   
   /*pushMatrix();
     desenhaEixos();
@@ -166,12 +168,13 @@ if(keyCode == 't' || keyCode == 'T'){
     Boolean previousLigarLampada = lampada.ligarLampada;
   
     if(switchMetals) {
-      cuboCadeira = new Cubo(50, "whiteFabric");
+      cuboCadeira = new Cubo(50, "pinkFabric");
       cuboDourado = new Cubo(50, "silver");
       pernaCadeira = new Cilindro(25, 25, 50, 20, "silver", true, true);
       rodasCadeira = new Cilindro(25, 25, 25, 30, "silver", true, true);
       cadeira = new Cadeira(cuboCadeira, cuboDourado, pernaCadeira, rodasCadeira);
       
+      copaLampada = new Cilindro(300, 150, 80, 10, "copaRosa",false, false);
       pernaLampada = new Cilindro(25, 25, 500, 20, "silver", true, true);
       baseLampada = new Cilindro(500, 25, 80, 20, "silver", true, true);
       lampada = new Lampada(copaLampada, pernaLampada, baseLampada, previousLigarLampada);

@@ -1,7 +1,7 @@
 class Planos {
-  PImage wood, wallpaper, porta;
+  PImage wood, wallpaper, porta, tapeteTexture;
   String tipo;
-  PShape chao, parede1, parede2, parede3, parede4;
+  PShape chao, parede1, parede2, parede3, parede4, tapete;
   float totalQuadrados = 10;
   
   Planos(String tipo) {
@@ -9,14 +9,15 @@ class Planos {
     wood = loadImage("wood.jpg");
     wallpaper = loadImage("wallpaper.jpg");
     porta = loadImage("porta.png");
+    tapeteTexture = loadImage("tapete.jpg");
     
     chao = createShape();
     
     chao.beginShape(QUADS);
-      chao.ambient(90, 61, 7);
-      chao.fill(90, 61, 7);
-      chao.specular(90, 61, 7);
-      chao.shininess(1);
+      //chao.ambient(72, 40, 7);
+      chao.fill(0, 0, 0);
+      //chao.specular(72, 40, 7);
+      //chao.shininess(1);
       chao.texture(wood);
       for(int i = 0; i < totalQuadrados; i++) {
         for(int z = 0; z < totalQuadrados; z++) {
@@ -28,14 +29,32 @@ class Planos {
       }
     chao.endShape();
     
+    tapete = createShape();
+
+    tapete.beginShape(QUADS);
+      //chao.ambient(72, 40, 7);
+      tapete.fill(0, 0, 0);
+      //chao.specular(72, 40, 7);
+      //chao.shininess(1);
+      tapete.texture(tapeteTexture);
+      for(int i = 0; i < totalQuadrados; i++) {
+        for(int z = 0; z < totalQuadrados; z++) {
+          tapete.vertex((xS/totalQuadrados * i), (xS/totalQuadrados * z), 0, (i/totalQuadrados), (z/totalQuadrados));
+          tapete.vertex((xS/totalQuadrados * i), (xS/totalQuadrados * z) + xS/totalQuadrados, 0, (i/totalQuadrados), (z/totalQuadrados) + 1/totalQuadrados);
+          tapete.vertex((xS/totalQuadrados * i) + xS/totalQuadrados, (xS/totalQuadrados * z) + xS/totalQuadrados, 0, (i/totalQuadrados) + 1/totalQuadrados, (z/totalQuadrados) + 1/totalQuadrados);
+          tapete.vertex((xS/totalQuadrados * i) + xS/totalQuadrados, (xS/totalQuadrados * z), 0, (i/totalQuadrados) + 1/totalQuadrados, (z/totalQuadrados));
+        }
+      }
+    tapete.endShape();
+    
     //lado esquerdo da cadeira //eixo XX
     parede1 = createShape();
     
     parede1.beginShape(QUADS);
-      parede1.ambient(152, 111, 61);
-      parede1.fill(152, 111, 61);
-      parede1.specular(152, 111, 61);
-      parede1.shininess(100);
+      parede1.ambient(255, 255, 255);
+      parede1.fill(255, 255, 255);
+      parede1.specular(255, 255, 255);
+      parede1.shininess(1);
       parede1.texture(wallpaper);
       for(int i = 0; i < totalQuadrados; i++) {
         for(int z = 0; z < totalQuadrados; z++) {
@@ -51,10 +70,10 @@ class Planos {
     parede2 = createShape();
 
     parede2.beginShape(QUADS);
-      parede2.ambient(152, 111, 61);
-      parede2.fill(152, 111, 61);
-      parede2.specular(152, 111, 61);
-      parede2.shininess(100);
+      parede2.ambient(255, 255, 255);
+      parede2.fill(255, 255, 255);
+      parede2.specular(255, 255, 255);
+      parede2.shininess(1);
       parede2.texture(wallpaper);
       for(int i = 0; i < totalQuadrados; i++) {
         for(int z = 0; z < totalQuadrados; z++) {
@@ -70,10 +89,10 @@ class Planos {
     parede3 = createShape();
     
     parede3.beginShape(QUADS);
-      parede3.ambient(152, 111, 61);
-      parede3.fill(152, 111, 61);
-      parede3.specular(152, 111, 61);
-      parede3.shininess(100);
+      parede3.ambient(255, 255, 255);
+      parede3.fill(255, 255, 255);
+      parede3.specular(255, 255, 255);
+      parede3.shininess(1);
       parede3.texture(wallpaper);
       for(int i = 0; i < totalQuadrados; i++) {
         for(int z = 0; z < totalQuadrados; z++) {
@@ -89,10 +108,10 @@ class Planos {
     parede4 = createShape();
     
     parede4.beginShape(QUADS);
-      parede4.ambient(152, 111, 61);
-      parede4.fill(152, 111, 61);
-      parede4.specular(152, 111, 61);
-      parede4.shininess(100);
+      parede4.ambient(255, 255, 255);
+      parede4.fill(255, 255, 255);
+      parede4.specular(255, 255, 255);
+      parede4.shininess(1);
       parede4.texture(wallpaper);
       for(int i = 0; i < totalQuadrados; i++) {
         for(int z = 0; z < totalQuadrados; z++) {
@@ -116,6 +135,12 @@ class Planos {
       shape(parede3);
     } else if(tipo == "parede4") {
       shape(parede4);
+    } else if(tipo == "tapete") {
+      pushMatrix();
+        scale(0.6, 0.8, 1);
+        translate(centroX * 0.4, centroY * 0.2, 1);
+        shape(tapete);
+      popMatrix();
     }
   } 
 }
