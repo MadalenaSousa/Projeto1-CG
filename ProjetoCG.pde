@@ -25,7 +25,6 @@ Cilindro pernaCadeira, rodasCadeira, copaLampada, pernaLampada, baseLampada;
 Cadeira cadeira;
 Lampada lampada;
 Planos chao, parede1, parede2, parede3, parede4, porta, janela;
-Led led;
 
 void setup() {
   colorMode(RGB);
@@ -57,8 +56,6 @@ void setup() {
   parede3 = new Planos("parede3");
   parede4 = new Planos("parede4");
   janela = new Planos("janela");
-  
-  led = new Led();
 }
 
 void draw() {
@@ -100,8 +97,6 @@ void draw() {
   parede3.desenha();
   parede4.desenha();
   //janela.desenha();
-  
-  led.desenhaLed();
   
   /*pushMatrix();
     desenhaEixos();
