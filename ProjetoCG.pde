@@ -17,8 +17,10 @@ float poZ = 600;
 
 PFont f;
 
-boolean luzAmbiente = true;
+boolean luzAmbiente = false;
 boolean switchMetals = false;
+
+int luzA = 180;
 
 Cubo cuboCadeira, cuboDourado;
 Cilindro pernaCadeira, rodasCadeira, copaLampada, pernaLampada, baseLampada;
@@ -26,6 +28,7 @@ Cadeira cadeira;
 Lampada lampada;
 Planos chao, parede1, parede2, parede3, parede4, porta, tapete;
 Mesa mesa;
+Janela janela;
 
 void setup() {
   colorMode(RGB);
@@ -59,6 +62,8 @@ void setup() {
   tapete = new Planos("tapete");
   
   mesa = new Mesa();
+  
+  janela = new Janela();
 }
 
 void draw() {
@@ -75,8 +80,8 @@ void draw() {
   /*----------------------------LUZES------------------------------------*/
   if(luzAmbiente) {
     ambientLight(0, 0, 0);
-    lightSpecular(200, 200, 200);
-    pointLight(150, 150, 150, centroX, centroY, zS);
+    lightSpecular(luzA, luzA, luzA);
+    spotLight(luzA, luzA, luzA, centroX, centroY, zS, 0, 0, -1, PI, 1);
     background(250, 240, 222);
   } else {
     ambientLight(0, 0, 0);
@@ -88,6 +93,11 @@ void draw() {
   /*-----------------------------OBJETOS----------------------------------*/
   pushMatrix();
     lampada.desenhaLampada();
+  popMatrix();
+  
+  pushMatrix();
+    janela.alteraIntensidade();
+    janela.desenha();
   popMatrix();
   
   pushMatrix();
@@ -130,9 +140,25 @@ void draw() {
 
 void keyPressed() {
   
+  if(luzAmbiente) {
+    if(key == '2') {
+      if(luzA <= 200) {
+        luzA = luzA + 10;
+      }
+    } else if(key == '1') {
+      if(luzA >= 30) {
+        luzA = luzA - 10;
+      }
+    }
+  }
+  
+  if(key == 'z' | key == 'Z') {
+    raio = raio - 10;
+  }
+  
 /*------------------------------------------------------ATIVAR PERSPETIVA----------------------------------------------------------------*/
 
-  if (key == 'p' | key == 'P' ) {
+  if (key == 'p' | key == 'P') {
     PERSPETIVA = !PERSPETIVA;
   }
   

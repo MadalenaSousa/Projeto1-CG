@@ -3,15 +3,15 @@ class Lampada {
   Cilindro copa, perna, base;
   int intensidade = 15;
   int cor[][]={
-    {180,180,180},
+    {100,100,100},
     {255,255,0  },
     {0,  255,255},
     {255,0,  255},
   };
   int numColor = 0;
-  int colorR  = 180;  
-  int colorG  = 180;
-  int colorB  = 180;
+  int colorR  = 100;  
+  int colorG  = 100;
+  int colorB  = 100;
   boolean ligarLampada;
   PShape lightBulb;
 
