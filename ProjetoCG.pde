@@ -68,6 +68,7 @@ void setup() {
 }
 
 void draw() {
+  background(178, 221, 232);
   
   /*-------------------------CAMARA&PERSPETIVA----------------------------*/
   if (PERSPETIVA == true) {
@@ -83,12 +84,10 @@ void draw() {
     ambientLight(0, 0, 0);
     lightSpecular(luzA, luzA, luzA);
     spotLight(luzA, luzA, luzA, centroX, centroY, zS, 0, 0, -1, PI, 1);
-    background(250, 240, 222);
   } else {
     ambientLight(0, 0, 0);
     lightSpecular(30, 30, 30);
     spotLight(30, 30, 30, centroX, centroY, zS, 0, 0, -1, PI, 1);
-    background(30, 30, 30);
   }
   
   /*-----------------------------OBJETOS----------------------------------*/

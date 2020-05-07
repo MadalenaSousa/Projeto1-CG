@@ -6,21 +6,24 @@ class Janela {
   PImage wood;
   
   Janela(){    
-    wood = loadImage("wood.jpg");
-    
+    wood = loadImage("wood.jpg");   
     luz = (hour() * 3600) + (minute() * 60) + second(); //soma dos segundos passados desde a 00:00
     
-    janela = createShape();
-    
+    janela = createShape();  
     janela.beginShape(QUADS);
-      janela.ambient(200, 200, 200);
-      if(luz >= 0 && luz < 43200) {
+      if(luz >= 0 && luz < 43200) { //mapeamento da luz de acordo com as horas do dia
+        janela.ambient(map(luz, 0, 43200, 0, 255), map(luz, 0, 43200, 0, 255), map(luz, 0, 43200, 0, 255));
         janela.emissive(map(luz, 0, 43200, 0, 255), map(luz, 0, 43200, 0, 255), map(luz, 0, 43200, 0, 255));
+        janela.fill(map(luz, 0, 43200, 0, 255), map(luz, 0, 43200, 0, 255), map(luz, 0, 43200, 0, 255), 100);
+        janela.specular(map(luz, 0, 43200, 0, 255), map(luz, 0, 43200, 0, 255), map(luz, 0, 43200, 0, 255));
       } else if(luz >= 43200 && luz <= 86400) {
+        janela.ambient(map(luz, 43200, 86400, 255, 0), map(luz, 43200, 86400, 255, 0), map(luz, 43200, 86400, 255, 0));
         janela.emissive(map(luz, 43200, 86400, 255, 0), map(luz, 43200, 86400, 255, 0), map(luz, 43200, 86400, 255, 0));
+        janela.fill(map(luz, 43200, 86400, 255, 0), map(luz, 43200, 86400, 255, 0), map(luz, 43200, 86400, 255, 0), 100);
+        janela.specular(map(luz, 43200, 86400, 255, 0), map(luz, 43200, 86400, 255, 0), map(luz, 43200, 86400, 255, 0));
       }
-      janela.specular(200, 200, 200);
-      janela.shininess(1);
+      janela.shininess(100);
+      
       for(int i = 0; i < totalQuadrados; i++) {
         for(int z = 0; z < totalQuadrados; z++) {
           janela.vertex((xS/totalQuadrados * i), xS, (xS/totalQuadrados * z), (i/totalQuadrados), (z/totalQuadrados));
