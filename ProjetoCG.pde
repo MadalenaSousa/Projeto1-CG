@@ -129,7 +129,7 @@ void draw() {
   textSize(24);
   textAlign(CENTER);
   pushMatrix();
-    translate(xS - 2, centroY, 550);
+    translate(xS - 2, centroY, 600);
     rotateZ(PI/2);
     rotateX(-PI/2);
     text("Press ENTER to spin the chair", 0, 0, 0);
@@ -138,10 +138,17 @@ void draw() {
     text("Press U/J to elevate the chair up and down", 0, 75, 0);
     text("Keep you mouse pressed to lean the chair", 0, 100, 0);
     text("Use the arrow keys to move the camera", 0, 125, 0);
+    text("Press T to turn on and off the ceiling light", 0, 150, 0);
+    text("Press 1/2 to decrease and increase it's intensity", 0, 175, 0);
+    text("Press Y to turn on and off the lamp light", 0, 200, 0);
+    text("Press 0/9 to decrease and increase it's intensity", 0, 225, 0);
+    text("Press C to change it's color", 0, 250, 0);
+    text("Press M to change the objects materials", 0, 275, 0);
   popMatrix();
 }
 
 void keyPressed() {
+/*----------------------------------------------------LIGAR/DESLIGAR LUZ TETO-------------------------------------------------------------*/
   
   if(luzAmbiente) {
     if(key == '2') {
@@ -153,10 +160,6 @@ void keyPressed() {
         luzA = luzA - 10;
       }
     }
-  }
-  
-  if(key == 'z' | key == 'Z') {
-    raio = raio - 10;
   }
   
 /*------------------------------------------------------ATIVAR PERSPETIVA----------------------------------------------------------------*/

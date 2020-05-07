@@ -8,7 +8,7 @@ class Janela {
   Janela(){    
     wood = loadImage("wood.jpg");
     
-    luz = (hour() * 3600) + (minute() * 60) + second();
+    luz = (hour() * 3600) + (minute() * 60) + second(); //soma dos segundos passados desde a 00:00
     
     janela = createShape();
     

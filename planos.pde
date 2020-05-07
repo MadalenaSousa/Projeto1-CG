@@ -2,7 +2,7 @@ class Planos {
   PImage wood, wallpaper, porta, tapeteTexture;
   String tipo;
   PShape chao, parede1, parede2, parede3, parede4, tapete;
-  float totalQuadrados = 10;
+  float totalQuadrados = 10; //número de quadrados na malha
   
   Planos(String tipo) {
     this.tipo = tipo;
@@ -141,7 +141,7 @@ class Planos {
       pushMatrix();
         translate(1, yS - 600, 0);
         scale(1, 0.3, 0.5);
-        parede2.setTexture(wood);
+        parede2.setTexture(porta);
         shape(parede2);
       popMatrix();
     }

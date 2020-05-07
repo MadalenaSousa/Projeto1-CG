@@ -23,7 +23,8 @@ class Lampada {
   }
   
   void desenhaLampada(){
-    /*----------------------------------------------------LUZ---------------------------------------------------------*/
+ /*------------------------------------------------------LUZ---------------------------------------------------------*/
+    
     if(ligarLampada) {
       ambientLight(0, 0, 0);
       lightSpecular(colorR, colorG, colorB);
@@ -56,17 +57,17 @@ class Lampada {
     
 /*------------------------------------------------------LAMPADA----------------------------------------------------------*/
     pushMatrix();
-        ambient(245, 245, 245);
-        fill(245, 245, 245, 100);
-        specular(245, 245, 245);
-        shininess(100);
-        translate(centroX/2, centroY/2, 520);
-        sphere(20);
+      ambient(0.05  * 255, 0.05 * 255, 0.0 * 255);
+      fill(0.5 * 255, 0.5 * 255, 0.4 * 255, 127);
+      specular(0.7 * 255, 0.7  * 255, 0.04 * 255);
+      shininess(100);
+      translate(centroX/2, centroY/2, 520);
+      sphere(20);
     popMatrix();
   }
   
   void alteraIntensidade() {
-    if(keyCode == '0') {
+    if(keyCode == '0') { //diminuir
       if(numColor == 0){ //branco
         if(colorR > 0 && colorG > 0 && colorB > 0) {
           colorR = colorR - intensidade;
@@ -89,7 +90,7 @@ class Lampada {
           colorB = colorB - intensidade;
         } 
       }
-    } else if(keyCode == '9') {
+    } else if(keyCode == '9') { //aumentar
       if(numColor == 0){ //branco
         if(colorR < 255 && colorG < 255 && colorB < 255) {
           colorR = colorR + intensidade;
@@ -115,7 +116,7 @@ class Lampada {
     }
   }
   
-  void alteraCor() {
+  void alteraCor() { //mudar cor da luz do candeeiro
     if ((key=='c') || (key=='C')) {
       numColor=(numColor+1)%4;
       colorR= cor[numColor][0];
@@ -124,7 +125,7 @@ class Lampada {
     }
   }
   
-  void ligar() {
+  void ligar() { //ligar e desligar o candeeiro
     if(keyCode == 'y' || keyCode == 'Y') {
       ligarLampada = !ligarLampada;
     }
