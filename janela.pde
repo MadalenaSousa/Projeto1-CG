@@ -3,14 +3,12 @@ class Janela {
   PShape janela, frame;
   float totalQuadrados = 10;
   int luz;
-  int hour, minute, second;
+  PImage wood;
   
   Janela(){    
-    hour = hour();
-    minute = minute();
-    second = second();
+    wood = loadImage("wood.jpg");
     
-    luz = (hour * 3600) + (minute * 60) + second;
+    luz = (hour() * 3600) + (minute() * 60) + second();
     
     janela = createShape();
     
@@ -34,19 +32,25 @@ class Janela {
     janela.endShape();
     
     frame = createShape();
-    
-    frame.beginShape(QUADS);
+    frame.beginShape();
       frame.ambient(103, 70, 8);
-      frame.stroke(103, 70, 8);
-      frame.strokeWeight(10);
-      frame.noFill();
+      frame.fill(103, 70, 8);
       frame.specular(103, 70, 8);
       frame.shininess(1);
-      frame.vertex(0, yS, 0);
-      frame.vertex(0, yS, zS);
-      frame.vertex(xS, yS, zS);
-      frame.vertex(xS, yS, 0);
-    frame.endShape();
+      frame.texture(wood);
+      
+      frame.vertex(xS, yS, 0, 1, 0);
+      frame.vertex(xS, yS, zS, 1, 1);
+      frame.vertex(0, yS, zS, 0, 1);
+      frame.vertex(0, yS, 0, 0, 0); 
+      
+      frame.beginContour();
+        frame.vertex(100, yS, 100, 0, 0);
+        frame.vertex(100, yS, zS - 100, 0, 1);
+        frame.vertex(xS - 100, yS, zS - 100, 1, 1);
+        frame.vertex(xS - 100, yS, 100, 1, 0);
+      frame.endContour();
+    frame.endShape(CLOSE);
   }
   
   void desenha(){
@@ -84,14 +88,6 @@ class Janela {
         shape(frame);
       popMatrix();
     popMatrix();
-  }
-  
-  void alteraIntensidade(){
-    hour = hour();
-    minute = minute();
-    second = second();
-    
-    luz = (hour * 3600) + (minute * 60) + second;
   }
   
 }

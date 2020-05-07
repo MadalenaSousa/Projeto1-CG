@@ -96,7 +96,7 @@ void draw() {
   popMatrix();
   
   pushMatrix();
-    janela.alteraIntensidade();
+    janela = new Janela();
     janela.desenha();
   popMatrix();
   
