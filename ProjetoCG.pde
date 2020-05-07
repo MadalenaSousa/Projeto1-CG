@@ -60,6 +60,7 @@ void setup() {
   parede3 = new Planos("parede3");
   parede4 = new Planos("parede4");
   tapete = new Planos("tapete");
+  porta = new Planos("porta");
   
   mesa = new Mesa();
   
@@ -115,6 +116,8 @@ void draw() {
     tapete.desenha();
     
     mesa.desenhaMesa();
+    
+    porta.desenha();
   popMatrix();
   
   /*pushMatrix();

@@ -137,6 +137,13 @@ class Planos {
         translate(centroX * 0.4, centroY * 0.2, 1);
         shape(tapete);
       popMatrix();
+    } else if(tipo == "porta") {
+      pushMatrix();
+        translate(1, yS - 600, 0);
+        scale(1, 0.3, 0.5);
+        parede2.setTexture(wood);
+        shape(parede2);
+      popMatrix();
     }
   } 
 }
